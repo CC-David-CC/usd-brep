@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased]
+### Fixed
+- Ordinary manifold unions could lose material when filling a cavity because
+  deletion of an internal face retained an unattributed void region instead of
+  the adjacent solid region. The existing survivor policy remains unchanged for
+  other operations, attributed merges and specialized Boolean modes.
+
 ## [1.0.1] - 2026-10-21
 ### Added
 - `SmApiUsdGeometryValidate.h`: run `SmBrep::AssertValid` on one BrepArray prim without changing the stage; `brep_geometry_validator` uses it.

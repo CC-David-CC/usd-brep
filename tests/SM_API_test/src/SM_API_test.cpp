@@ -60,6 +60,18 @@ SmStatus run_sm_api(SmBoolean bDoGraphics)
       smos_WriteBuffer(_T("\n\n******************** End TestSmBoolean NOT successful ************\n"), NULL);
   }
 
+  MYPRINTF(_T("\n\n******************** Start TestSmUnionMaterialSurvivor ************\n"));
+  stat = TestSmUnionMaterialSurvivor();
+  iCnt++;
+  if (stat == SM_SUCCESS) {
+      nSuccessFul++;
+      smos_WriteBuffer(_T("\n\n******************** End TestSmUnionMaterialSurvivor Successful ************\n"));
+  }
+  else {
+      nFailed++;
+      smos_WriteBuffer(_T("\n\n******************** End TestSmUnionMaterialSurvivor NOT successful ************\n"));
+  }
+
   MYPRINTF(_T("\n\n******************** Start TestSmBooleanBoundsExample ************\n"));
   stat = TestSmBooleanBoundsExample();
   iCnt++;

@@ -93,6 +93,15 @@ are not test requirements. See also the
 - The two bodies should overlap or at least touch. If they're disjoint, union produces a multi-shell BRep, and intersection produces nothing.
 - Python input ownership transfers to the operation; use only the returned handle afterward. The result may reuse the modified primary operand. Native callers must follow the selected `SmApi*` entry point's ownership contract.
 
+### Cavity fills in ordinary manifold unions
+
+When an internal face deletion joins two non-infinite, unattributed regions in
+an ordinary postprocessed manifold union, existing material must survive: a
+point in A is in A union B. The union-specific survivor choice does not
+reclassify all regions or change the ownership contract. Attributed region
+merges, other operations and specialized Boolean options retain their existing
+policy.
+
 ### Difference Order Matters
 `boolean_difference(A, B)` removes B from A. Swapping A and B gives a completely different result. Think of B as the "tool" that cuts into the "workpiece" A.
 
